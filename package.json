@@ -4,7 +4,8 @@
   "description": "A discord bot that helps.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node -r dotenv/config .",
+    "mon": "nodemon -r dotenv/config ."
   },
   "repository": {
     "type": "git",
