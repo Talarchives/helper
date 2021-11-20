@@ -3,7 +3,7 @@ const
   { TOKEN } = process.env,
   client = new Client({ intents: [Intents.FLAGS.GUILDS] }),
 
-  fs = require('fs'), path = require('path'),
+  { readdirRecursive } = require('./functions'),
   commands = readdirRecursive('./src/commands');
 
 client.commands = new Collection();
@@ -25,23 +25,3 @@ client.on('interactionCreate', interaction => {
 });
 
 client.login(TOKEN);
-
-function readdirRecursive(directory) {
-  const result = [];
-
-  (function read(dir) {
-    const files = fs.readdirSync(dir);
-
-    for (const file of files) {
-      const filepath = path.join(dir, file);
-
-      if (fs.statSync(filepath).isDirectory()) {
-        read(filepath);
-      } else {
-        result.push(filepath.replace(/\\/g, '/'));
-      }
-    }
-  }(directory));
-
-  return result;
-}
