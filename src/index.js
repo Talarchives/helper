@@ -9,19 +9,20 @@ const
 client.commands = new Collection();
 for (const file of commands) {
   const command = require(`../${file}`);
-  client.commands.set(command.name, command);
+  client.commands.set(command.data?.name, command);
 }
 
-client.on('ready', () => {
-  console.log('ready');
-});
+client.on('ready', () => console.log('Ready', new Date()));
 
-client.on('interactionCreate', interaction => {
+client.on('interactionCreate', i => {
   try {
-    client.commands.get(interaction.commandName).run(client, interaction);
-  } catch (e) {
-    console.log(e);
+    client.commands.get(i.commandName).run(client, i);
+  } catch (error) {
+    console.log(new Date(), error);
   }
 });
 
+process.on('unhandledRejection', e => {
+  console.log(new Date(), e);
+});
 client.login(TOKEN);
