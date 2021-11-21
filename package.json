@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node -r dotenv/config .",
-    "mon": "nodemon -r dotenv/config ."
+    "mon": "nodemon -r dotenv/config .",
+    "register": "node -r dotenv/config ./src/commands/register.js"
   },
   "repository": {
     "type": "git",
