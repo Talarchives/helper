@@ -21,6 +21,7 @@ module.exports = {
   
     return result;
   },
+  // https://github.com/countr/countr/blob/8826fb656e06fc51f7d66924893c73e33e818b96/src/constants/time.js#L9
   msToTime: (ms) => {
     const
       years = Math.floor(ms / 31536000000), yearsms = ms % 31536000000,
