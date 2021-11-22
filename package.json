@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node -r dotenv/config .",
     "mon": "nodemon -r dotenv/config .",
-    "register": "node -r dotenv/config ./src/commands/register.js"
+    "register": "node -r dotenv/config ./src/register.js"
   },
   "repository": {
     "type": "git",
