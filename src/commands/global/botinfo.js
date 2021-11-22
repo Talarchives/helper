@@ -1,3 +1,5 @@
+const { msToTime } = require('../../functions');
+
 module.exports = {
   data: {
     name: 'botinfo',
@@ -7,7 +9,7 @@ module.exports = {
     const content = [
       `**Bot Name:** ${client.user.tag}`,
       `**Bot Owner:** ${(await client.users.fetch(process.env.OWNERID)).username}`,
-      `**Bot Uptime:** ${client.uptime}`,
+      `**Bot Uptime:** ${msToTime(client.uptime)}`,
       `**Bot Guilds:** ${client.guilds.cache.size}`,
       `**Bot Channels:** ${client.channels.cache.size}`,
       `**Bot Users:** ${client.users.cache.size}`,
