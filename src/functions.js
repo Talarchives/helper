@@ -20,5 +20,25 @@ module.exports = {
     }(directory));
   
     return result;
-  }
+  },
+  msToTime: (ms) => {
+    const
+      years = Math.floor(ms / 31536000000), yearsms = ms % 31536000000,
+      months = Math.floor(yearsms / 2592000000),
+      days = Math.floor((yearsms / 86400000) % 30), daysms = ms % 86400000,
+      hours = Math.floor(daysms / 3600000), hoursms = ms % 3600000,
+      minutes = Math.floor(hoursms / 60000), minutesms = ms % 60000,
+      sec = Math.floor(minutesms / 1000);
+  
+    let str = '';
+    if (years) str += `${years} year${this.pl(years)} `;
+    if (months) str += `${months} month${this.pl(months)} `;
+    if (days) str += `${days} day${this.pl(days)} `;
+    if (hours) str += `${hours} hour${this.pl(hours)} `;
+    if (minutes) str += `${minutes} minute${this.pl(minutes)} `;
+    if (sec) str += `${sec} second${this.pl(sec)} `;
+  
+    return str;
+  },
+  pl: val => val === 1 ? '' : 's'
 };
