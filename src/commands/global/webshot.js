@@ -5,23 +5,23 @@ module.exports = {
     description: 'Get a screenshot of a website',
     options: [
       {
-        type: 'STRING',
+        type: 3, // string
         name: 'url',
         description: 'The URL to screenshot',
         required: true
       },
       {
-        type: 'INTEGER',
+        type: 4, // integer
         name: 'width',
         description: 'The width of the screenshot in pixels. Default: 600'
       },
       {
-        type: 'INTEGER',
+        type: 4, // integer
         name: 'height',
         description: 'The height of the screenshot in pixels. Default: 1200'
       },
       {
-        type: 'INTEGER',
+        type: 4, // integer
         name: 'max_age',
         description: 'Refresh the thumbnail if the cached image is older than this amount, in hours'
       }

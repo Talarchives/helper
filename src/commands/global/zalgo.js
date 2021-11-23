@@ -5,7 +5,7 @@ module.exports = {
     description: 'Zalgo or unzalgo text',
     options: [
       {
-        type: 'STRING',
+        type: 3, // string
         name: 'options',
         description: 'To zalgo or unzalgo',
         required: true,
@@ -15,7 +15,7 @@ module.exports = {
         ]
       },
       {
-        type: 'STRING',
+        type: 3, // string
         name: 'text',
         description: 'Text to convert',
         required: true
