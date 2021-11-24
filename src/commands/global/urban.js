@@ -42,7 +42,7 @@ module.exports = {
       components: [new MessageActionRow().addComponents(menu)] 
     });
     const filter = (i) => i.customId === interaction.id && i.user.id === interaction.user.id;
-    const collector = new InteractionCollector(client, { filter, time: 15000, message });
+    const collector = new InteractionCollector(client, { filter, time: 6e5, message });
     collector.on('collect', i => i.update({ content: `Page ${parseInt(i.values[0]) + 1}`, embeds: [createDef(list[i.values[0]])] }));
     collector.on('end', () => interaction.editReply({ content: '', components: [] }));
   }
