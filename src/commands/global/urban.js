@@ -1,4 +1,9 @@
-const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js'),
+const {
+    MessageEmbed,
+    MessageActionRow,
+    MessageSelectMenu,
+    InteractionCollector
+  } = require('discord.js'),
   fetch = require('node-fetch');
 module.exports = {
   data: {
@@ -37,9 +42,9 @@ module.exports = {
       components: [new MessageActionRow().addComponents(menu)] 
     });
     const filter = (i) => i.customId === interaction.id && i.user.id === interaction.user.id;
-    const collector = message.createMessageComponentCollector({ filter, time: 6e5 });
+    const collector = new InteractionCollector(client, { filter, time: 15000, message });
     collector.on('collect', i => i.update({ content: `Page ${parseInt(i.values[0]) + 1}`, embeds: [createDef(list[i.values[0]])] }));
-    collector.on('end', () => interaction.editReply({ components: [] }));
+    collector.on('end', () => interaction.editReply({ content: '', components: [] }));
   }
 };
 
