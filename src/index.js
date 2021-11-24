@@ -16,7 +16,7 @@ client.on('ready', () => console.log('Ready', new Date()));
 
 client.on('interactionCreate', i => {
   try {
-    client.commands.get(i.commandName).run(client, i);
+    client.commands.get(i.commandName)?.run(client, i);
   } catch (error) {
     console.log(new Date(), error);
   }
