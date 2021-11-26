@@ -1,7 +1,7 @@
 const
   { Client, Intents, Collection } = require('discord.js'),
   { TOKEN } = process.env,
-  client = new Client({ intents: [Intents.FLAGS.GUILDS] }),
+  client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_PRESENCES] }),
 
   { readdirRecursive } = require('./functions'),
   commands = readdirRecursive('./src/commands');
