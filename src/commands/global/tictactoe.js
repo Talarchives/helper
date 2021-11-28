@@ -52,7 +52,12 @@ module.exports = {
       }
       await i.update({ content: `<@!${turn}>'s turn`, components });
     });
-    collector.on('end', (_, r) => r !== 'user' ? interaction.editReply({ content: `Game ended! (${r} limit reached)` }) : null);
+    collector.on('end', (_, r) => {
+      if(r !== 'user') {
+        components.forEach(c => c.components.forEach(b => b.setDisabled()));
+        interaction.editReply({ content: `Game ended! (${r} limit reached)`, components });
+      }
+    });
   }
 };
 
